@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Landing Page</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <nav id="menu">
+      <input
+        type="checkbox"
+        id="responsive-menu"
+        onclick="updatemenu()"
+      /><label></label>
+      <ul>
+        <li><a href="/">Beranda</a></li>
+        <li><a href="/prediksi-stunting">Prediksi Stunting</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/info-stunting">Info Stunting</a></li>
+      </ul>
+    </nav>
+    <div class="landing-page">
+      <img
+        class="full-width-image"
+        src="/static/image/background.jpg"
+        alt="Full Width Image"
+      />
+
+      <div class="text-container">
+        <h1>Selamat Datang di Halaman Beranda</h1>
+        <p>
+          Ini adalah kata-kata sambutan dan informasi sekilas tentang stunting.
+        </p>
+        <p>
+          Stunting adalah kondisi pertumbuhan terhambat yang biasanya terjadi
+          pada anak-anak akibat kekurangan gizi kronis dalam jangka waktu yang
+          lama.
+        </p>
+        <p>
+          Untuk melakukan prediksi stunting, silakan klik tombol di bawah ini.
+        </p>
+        <a class="btn-prediksi" href="/predict">Prediksi Stunting</a>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="card">
+        <img
+          src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+          class="card-image"
+          alt="Card Image"
+        />
+        <div class="card-content">
+          <img
+            src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+            class="card-thumbnail"
+            alt="Card Thumbnail"
+          />
+          <div class="card-description">
+            <h5 class="card-title">Card Title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+          class="card-image"
+          alt="Card Image"
+        />
+        <div class="card-content">
+          <img
+            src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+            class="card-thumbnail"
+            alt="Card Thumbnail"
+          />
+          <div class="card-description">
+            <h5 class="card-title">Card Title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+          class="card-image"
+          alt="Card Image"
+        />
+        <div class="card-content">
+          <img
+            src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+            class="card-thumbnail"
+            alt="Card Thumbnail"
+          />
+          <div class="card-description">
+            <h5 class="card-title">Card Title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+          class="card-image"
+          alt="Card Image"
+        />
+        <div class="card-content">
+          <img
+            src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+            class="card-thumbnail"
+            alt="Card Thumbnail"
+          />
+          <div class="card-description">
+            <h5 class="card-title">Card Title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

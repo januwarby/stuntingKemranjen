@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prediksi Stunting</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style_prediksi_stunting.css') }}"
+    />
+  </head>
+
+  <body>
+    <nav id="menu">
+      <input
+        type="checkbox"
+        id="responsive-menu"
+        onclick="updatemenu()"
+      /><label></label>
+      <ul>
+        <li><a href="/">Beranda</a></li>
+        <li><a href="/prediksi-stunting">Prediksi Stunting</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/info-stunting">Info Stunting</a></li>
+      </ul>
+    </nav>
+
+    <h1>SIPRESTUN</h1>
+    <h2 class="subjudul">Sistem Prediksi Stunting</h2>
+    <form method="POST" action="/predict">
+      <label for="JenisKelamin">Jenis Kelamin:</label>
+      <select id="JenisKelamin" name="JenisKelamin">
+        <option value="1">Laki-laki</option>
+        <option value="0">Perempuan</option></select
+      ><br /><br />
+
+      <label for="UmurBaduta">Umur Bayi (bulan):</label>
+      <input type="text" id="UmurBaduta" name="UmurBaduta" /><br /><br />
+
+      <label for="AnakKe">Anak Ke:</label>
+      <input type="text" id="AnakKe" name="AnakKe" /><br /><br />
+
+      <label for="JumlahAnak">Jumlah Anak:</label>
+      <input type="text" id="JumlahAnak" name="JumlahAnak" /><br /><br />
+
+      <label for="BBLahir">Berat Badan Lahir (kg):</label>
+      <input type="text" id="BBLahir" name="BBLahir" /><br /><br />
+
+      <label for="PBLahir">Panjang Badan Lahir (cm):</label>
+      <input type="text" id="PBLahir" name="PBLahir" /><br /><br />
+
+      <label for="PBSekarang">Panjang Badan Sekarang (cm):</label>
+      <input type="text" id="PBSekarang" name="PBSekarang" /><br /><br />
+
+      <label for="BBSekarang">Berat Badan Sekarang (kg):</label>
+      <input type="text" id="BBSekarang" name="BBSekarang" /><br /><br />
+
+      <label for="UmurAyah">Umur Ayah (tahun):</label>
+      <input type="text" id="UmurAyah" name="UmurAyah" /><br /><br />
+
+      <label for="UmurIbu">Umur Ibu (tahun):</label>
+      <input type="text" id="UmurIbu" name="UmurIbu" /><br /><br />
+
+      <label for="usiadiberimakananpadat"
+        >Usia Diberi Makanan Padat (bulan):</label
+      >
+      <input
+        type="text"
+        id="usiadiberimakananpadat"
+        name="usiadiberimakananpadat"
+      /><br /><br />
+
+      <label for="LuasBangunan">Luas Bangunan (m^2):</label>
+      <input type="text" id="LuasBangunan" name="LuasBangunan" /><br /><br />
+
+      <label for="Subtotpeng_pangan"
+        >Subtotal Pengeluaran Pangan (Rupiah):</label
+      >
+      <input
+        type="text"
+        id="Subtotpeng_pangan"
+        name="Subtotpeng_pangan"
+      /><br /><br />
+
+      <label for="Subtotpeng_nonpangan"
+        >Subtotal Pengeluaran Non-Pangan (Rupiah):</label
+      >
+      <input
+        type="text"
+        id="Subtotpeng_nonpangan"
+        name="Subtotpeng_nonpangan"
+      /><br /><br />
+
+      <label for="TotalPengeluaran">Total Pengeluaran (Rupiah):</label>
+      <input
+        type="text"
+        id="TotalPengeluaran"
+        name="TotalPengeluaran"
+      /><br /><br />
+
+      <input type="submit" value="Prediksi" />
+    </form>
+
+    {% if prediction %}
+    <div class="prediction">
+      <h2 class="prediction-label">Hasil Prediksi:</h2>
+      <h2 class="prediction-text">{{ prediction }}</h2>
+    </div>
+    {% endif %}
+  </body>
+</html>

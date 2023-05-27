@@ -1,42 +1,59 @@
 from flask import Flask, render_template, request
 import pickle
 
-app = Flask(__name__)
-
-# Memuat model pkl
-model_path = 'stunting.pkl'
-with open(model_path, 'rb') as file:
+# Load model dari file pkl
+with open('Model/stunting.pkl', 'rb') as file:
     model = pickle.load(file)
 
-@app.route('/', methods=['GET', 'POST'])
+app = Flask(__name__)
+
+@app.route('/')
 def home():
-    if request.method == 'POST':
-        # Mendapatkan input dari form
-        input_data = [
-            float(request.form['JenisKelamin']),
-            float(request.form['UmurBaduta']),
-            float(request.form['AnakKe']),
-            float(request.form['JumlahAnak']),
-            float(request.form['BBLahir']),
-            float(request.form['PBLahir']),
-            float(request.form['PBSekarang']),
-            float(request.form['BBSekarang']),
-            float(request.form['UmurAyah']),
-            float(request.form['UmurIbu']),
-            float(request.form['usiadiberimakananpadat']),
-            float(request.form['LuasBangunan']),
-            float(request.form['Subtotpeng_pangan']),
-            float(request.form['Subtotpeng_nonpangan']),
-            float(request.form['TotalPengeluaran'])
-        ]
+    return render_template('index.html')
 
-        # Memanggil model untuk melakukan prediksi
-        prediction = model.predict([input_data])
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
 
-        # Menampilkan hasil prediksi
-        return render_template('result.html', prediction=prediction[0])
+@app.route('/info-stunting')
+def info_stunting():
+    return render_template('infostunting.html')
 
-    return render_template('/home/yayan/Desktop/tugasKp/stuntingKemranjen/form.html')
+@app.route('/prediksi-stunting')
+def prediksi_stunting():
+    return render_template('prediksistunting.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    # Ambil nilai input dari form
+    input_data = [
+        float(request.form['JenisKelamin']),
+        float(request.form['UmurBaduta']),
+        float(request.form['AnakKe']),
+        float(request.form['JumlahAnak']),
+        float(request.form['BBLahir']),
+        float(request.form['PBLahir']),
+        float(request.form['PBSekarang']),
+        float(request.form['BBSekarang']),
+        float(request.form['UmurAyah']),
+        float(request.form['UmurIbu']),
+        float(request.form['usiadiberimakananpadat']),
+        float(request.form['LuasBangunan']),
+        float(request.form['Subtotpeng_pangan']),
+        float(request.form['Subtotpeng_nonpangan']),
+        float(request.form['TotalPengeluaran'])
+    ]
+    
+    # Lakukan prediksi menggunakan model
+    prediction = model.predict([input_data])
+    
+    # Tampilkan hasil prediksi
+    if prediction[0] == 1:
+        result = 'Stunting'
+    else:
+        result = 'Normal'
+
+    return render_template('prediksistunting.html', prediction=result)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
