@@ -230,6 +230,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
+  display: none;
 }
 
 .card-title {

@@ -7,6 +7,24 @@
       type="text/css"
       href="{{ url_for('static', filename='css/style_faq.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const faqToggleButtons = document.querySelectorAll(".faq-toggle");
+
+        faqToggleButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const faq = button.parentElement;
+            const faqText = faq.querySelector(".faq-text");
+            faqText.classList.toggle("active");
+            faq.classList.toggle("active");
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <nav id="menu">
@@ -22,50 +40,97 @@
         <li><a href="/info-stunting">Info Stunting</a></li>
       </ul>
     </nav>
+    <!-- faq -->
+    <div class="faq-container">
+      <div class="faq active">
+        <h3 class="faq-title">Apa itu stunting?</h3>
 
-    <div class="faq-page">
-      <h1>FAQ tentang Stunting</h1>
+        <p class="faq-text">
+          Stunting adalah kondisi di mana pertumbuhan anak terhambat akibat
+          kurangnya asupan gizi yang memadai dan faktor lingkungan yang tidak
+          mendukung.
+        </p>
+        <button class="faq-toggle">
+          <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
-      <h2>Apa itu stunting?</h2>
-      <p>
-        Stunting adalah kondisi pertumbuhan terhambat yang biasanya terjadi pada
-        anak-anak akibat kekurangan gizi kronis dalam jangka waktu yang lama.
-      </p>
+      <div class="faq">
+        <h3 class="faq-title">
+          Apa dampak negatif dari stunting pada perkembangan anak?
+        </h3>
 
-      <h2>Apa penyebab stunting?</h2>
-      <p>
-        Penyebab stunting dapat beragam, antara lain kurangnya asupan gizi yang
-        cukup, infeksi berulang, sanitasi yang buruk, serta faktor
-        sosial-ekonomi dan lingkungan.
-      </p>
+        <p class="faq-text">
+          Stunting dapat berdampak negatif pada perkembangan otak, kesehatan,
+          dan prestasi belajar anak.
+        </p>
+        <button class="faq-toggle">
+          <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
-      <h2>Apa dampak dari stunting?</h2>
-      <p>
-        Stunting dapat memiliki dampak jangka panjang pada perkembangan fisik
-        dan kognitif anak. Anak yang mengalami stunting berisiko mengalami
-        masalah kesehatan, keterbatasan pertumbuhan dan perkembangan, serta
-        memiliki peluang pendidikan yang lebih rendah.
-      </p>
+      <div class="faq">
+        <h3 class="faq-title">Bagaimana prevalensi stunting di Indonesia?</h3>
 
-      <h2>Bisakah stunting dicegah?</h2>
-      <p>
-        Stunting bisa dicegah dengan upaya yang melibatkan pemenuhan gizi yang
-        baik, akses ke air bersih dan sanitasi yang memadai, serta pemahaman
-        tentang praktik gizi yang sehat.
-      </p>
+        <p class="faq-text">
+          Menurut hasil Survei Status Gizi Indonesia (SSGI) pada tahun 2022,
+          prevalensi stunting di Indonesia adalah 21,6 persen.
+        </p>
+        <button class="faq-toggle">
+          <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
-      <h2>Bagaimana cara mendiagnosis stunting?</h2>
-      <p>
-        Stunting dapat didiagnosis melalui pengukuran tinggi badan anak dan
-        membandingkannya dengan standar pertumbuhan yang ada.
-      </p>
+      <div class="faq">
+        <h3 class="faq-title">
+          Apa yang menjadi target penurunan angka stunting di Indonesia?
+        </h3>
 
-      <h2>Apakah stunting dapat diobati?</h2>
-      <p>
-        Stunting tidak dapat diobati sepenuhnya setelah anak tumbuh dewasa,
-        namun upaya perbaikan gizi dan lingkungan yang baik dapat membantu
-        memperbaiki kondisi kesehatan dan perkembangan anak.
-      </p>
+        <p class="faq-text">
+          Presiden Joko Widodo menargetkan penurunan stunting di bawah 20 persen
+          pada tahun 2024.
+        </p>
+        <button class="faq-toggle">
+          <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="faq">
+        <h3 class="faq-title">
+          Apa saja upaya yang dilakukan pemerintah Indonesia untuk menangani
+          stunting?
+        </h3>
+        <p class="faq-text">
+          Pemerintah melakukan berbagai upaya, seperti memberikan intervensi
+          gizi pada ibu hamil dan anak usia 0-2 tahun, meningkatkan akses air
+          bersih dan sanitasi, memperbaiki kualitas pangan dan pola makan, serta
+          melakukan inovasi dan terobosan berbasis data.
+        </p>
+        <button class="faq-toggle">
+          <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="faq">
+        <h3 class="faq-title">
+          Mengapa penanganan stunting harus menjadi prioritas nasional?
+        </h3>
+        <p class="faq-text">
+          Stunting bukan hanya masalah kesehatan, tetapi juga masalah
+          pembangunan manusia dan kebudayaan. Penanganan stunting merupakan
+          tanggung jawab bersama untuk memastikan anak-anak Indonesia dapat
+          mencapai potensi mereka dan menjadi generasi emas di masa depan.
+        </p>
+        <button class="faq-toggle">
+          <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </div>
   </body>
 </html>
